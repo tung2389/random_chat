@@ -1,0 +1,16 @@
+.center{
+    position: fixed;
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+}
+.input{
+    width: 400px;
+}
+.btn_holder{
+    width: 200px;
+    position: fixed;
+    left: 50%; 
+    top:130px;
+    transform: translate(-50%, 0%)
+}
