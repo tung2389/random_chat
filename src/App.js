@@ -54,7 +54,8 @@ class App extends Component {
   render() {
     return (
       <div>
-      {this.state.main_component}
+      {/* {this.state.main_component} */}
+      <Chat_page/>
       <button onClick = {this.check}></button>
       </div>
     );
