@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Starting_page from './sub_component/Starting_page';
-import Waiting_page from './sub_component/Waiting_page';
-import Chat_page from './sub_component/Chat_page';
+import Starting_page from './random_chat_pages/Starting_page';
+import Waiting_page from './random_chat_pages/Waiting_page';
+import Chat_page from './random_chat_pages/Chat_page';
 import io from 'socket.io-client';
 
 const url = 'http://localhost:3001';
