@@ -55,9 +55,7 @@ export default class Type_bar extends Component {
     return (
       <div> 
         <div className = "input2_holder" ref = "inp">
-        {/* <div ref = "real_inp" className = "input_holder_2"> */}
         <TextField onChange = {(e) => this.count_char(e,this.props.change_message)} className = "input2" multiline = "true"></TextField>
-        {/* </div> */}
         </div>
         <div className = "btn_send_holder">
         <Fab color="primary" aria-label="Add">
