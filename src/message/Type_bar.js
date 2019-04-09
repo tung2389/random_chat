@@ -8,25 +8,55 @@ import '../App.css';
 const initial_top = 590;
 const initial_height = 50;
 const initial_bottom_input = 20;
+const max_in_one_row = 67;
+const gap_between_line = 16;
 
 export default class Type_bar extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      //length = 1 to prevent distance = 0
+      length:1
+    }
+    this.count_char = this.count_char.bind(this);
+    this.resize = this.resize.bind(this);
+  }
+
   componentDidMount(){
     let input_holder = ReactDOM.findDOMNode(this.refs.inp);
     // let input = ReactDOM.findDOMNode(this.refs.real_inp);
-    input_holder.addEventListener("keydown",() => this.resize(input_holder));
+    input_holder.addEventListener("keydown",(event) => this.resize(event,input_holder));
   }
-  resize(input_holder/*,input*/){
-    // input_holder.height = 'auto';
-    input_holder.style.height = input_holder.scrollHeight + 'px';
-    input_holder.style.top = initial_top - (input_holder.scrollHeight - initial_height) + 'px';
-    // input.style.bottom = initial_bottom_input + (input_holder.scrollHeight - initial_height) + (input.scrollHeight-20)  + 'px';
+
+  count_char(e,change_message){
+    //Prevent distance = 0
+    if(e.target.value.length === 0)
+    this.setState({length:e.target.value.length + 1});
+    else
+    this.setState({length:e.target.value.length + 1});
+    // change_message(e.target.value);
+  }
+
+  resize(event,input_holder/*,input*/){
+    //If Enter, block
+    //console.log(gap_between_line * (Math.ceil(this.state.length / max_in_one_row)));
+    if(event.keyCode === 13)
+    {
+      event.preventDefault();
+    }
+    else
+    {
+    let distance = Math.ceil(this.state.length / max_in_one_row);
+    input_holder.style.height = initial_height + gap_between_line * (distance - 1) + 'px';
+    input_holder.style.top = initial_top - gap_between_line * (distance - 1) + 'px';
+    }
   }
   render() {
     return (
       <div> 
         <div className = "input2_holder" ref = "inp">
         {/* <div ref = "real_inp" className = "input_holder_2"> */}
-        <TextField onChange = {this.props.change_message} className = "input2" multiline = "true"></TextField>
+        <TextField onChange = {(e) => this.count_char(e,this.props.change_message)} className = "input2" multiline = "true"></TextField>
         {/* </div> */}
         </div>
         <div className = "btn_send_holder">
