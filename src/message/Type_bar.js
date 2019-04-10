@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TextField from '@material-ui/core/TextField';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
 import '../App.css';
 
 const initial_top = 590;
@@ -34,9 +32,22 @@ export default class Type_bar extends Component {
     this.setState({length:e.target.value.length + 1});
     else
     this.setState({length:e.target.value.length + 1});
-    // change_message(e.target.value);
+    change_message(e.target.value);
   }
 
+  caculate_resize(distance,input_holder){
+
+    if(distance <= 6){
+    input_holder.style.height = initial_height + gap_between_line * (distance - 1) + 'px';
+    input_holder.style.top = initial_top - gap_between_line * (distance - 1) + 'px';
+    }
+
+    else{
+      input_holder.style.height = initial_height + gap_between_line * 6 + 'px';
+      input_holder.style.top = initial_top - gap_between_line * 7 + 'px';
+      input_holder.style.overflow = 'auto';
+    }
+  }
   resize(event,input_holder/*,input*/){
     //If Enter, block
     //console.log(gap_between_line * (Math.ceil(this.state.length / max_in_one_row)));
@@ -44,25 +55,18 @@ export default class Type_bar extends Component {
     {
       event.preventDefault();
     }
+
     else
     {
     let distance = Math.ceil(this.state.length / max_in_one_row);
-    input_holder.style.height = initial_height + gap_between_line * (distance - 1) + 'px';
-    input_holder.style.top = initial_top - gap_between_line * (distance - 1) + 'px';
+    this.caculate_resize(distance,input_holder);
     }
   }
   render() {
     return (
-      <div> 
         <div className = "input2_holder" ref = "inp">
         <TextField onChange = {(e) => this.count_char(e,this.props.change_message)} className = "input2" multiline = "true"></TextField>
         </div>
-        <div className = "btn_send_holder">
-        <Fab color="primary" aria-label="Add">
-        <AddIcon />
-        </Fab>
-        </div>
-      </div>
     )
   }
 }

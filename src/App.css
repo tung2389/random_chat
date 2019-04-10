@@ -50,6 +50,7 @@
     width:600px;
     overflow-wrap: break-word;
     word-break: break-all;
+    overflow: hidden;
   }
   .chat_background{
       position: fixed;

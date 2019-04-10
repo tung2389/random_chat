@@ -55,7 +55,7 @@ class App extends Component {
     return (
       <div>
       {/* {this.state.main_component} */}
-      <Chat_page/>
+      <Chat_page socket = {socket}/>
       <button onClick = {this.check}></button>
       </div>
     );
