@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = {
   partner_message: {
     'max-width': '400px',
-    'background': 'aliceblue',
+    'background': 'aqua',
     'overflow-wrap': 'break-word',
     'display': 'inline-block',
     'border-radius': '10px'
@@ -19,7 +19,6 @@ class Partner_message extends Component {
       <div align = "left">
       {/* your partner is {this.props.name} and your room is {this.props.room} */}
       <Paper elevation={4} classes={{ root: classes.partner_message }}>
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       {this.props.content}
     </Paper>
     </div>

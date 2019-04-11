@@ -7,15 +7,19 @@ export default class Send_button extends Component {
   constructor(props){
       super(props);
   }
-  send_message(socket,message){
+  handle_message(socket,message,update_all_message){
+      //Send your message to partner
       socket.emit("send message",message);
+      //Update your message in the screen
+      update_all_message();
   }
   render() {
-    const { socket,message } = this.props;
+    const { socket, message, update_all_message} = this.props;
+    // console.log(this.props);
     return (
         <div className = "btn_send_holder">
-        <Fab color="primary" aria-label="Add">
-        <AddIcon onClick = {() => this.send_message(socket,message)}/>
+        <Fab onClick = {() => this.handle_message(socket,message,update_all_message)} color="primary" aria-label="Add">
+        <AddIcon />
         </Fab>
         </div>
     )

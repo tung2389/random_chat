@@ -65,7 +65,7 @@ export default class Type_bar extends Component {
   render() {
     return (
         <div className = "input2_holder" ref = "inp">
-        <TextField onChange = {(e) => this.count_char(e,this.props.change_message)} className = "input2" multiline = "true"></TextField>
+        <TextField onChange = {(e) => this.count_char(e,this.props.change_message)} className = "input2" multiline = {true}></TextField>
         </div>
     )
   }
