@@ -37,16 +37,16 @@ export default class Type_bar extends Component {
 
   caculate_resize(distance,input_holder){
 
-    if(distance <= 6){
-    input_holder.style.height = initial_height + gap_between_line * (distance - 1) + 'px';
-    input_holder.style.top = initial_top - gap_between_line * (distance - 1) + 'px';
-    }
+    // if(distance <= 6){
+    // input_holder.style.height = initial_height + gap_between_line * (distance - 1) + 'px';
+    // input_holder.style.top = initial_top - gap_between_line * (distance - 1) + 'px';
+    // }
 
-    else{
-      input_holder.style.height = initial_height + gap_between_line * 6 + 'px';
-      input_holder.style.top = initial_top - gap_between_line * 7 + 'px';
-      input_holder.style.overflow = 'auto';
-    }
+    // else{
+    //   input_holder.style.height = initial_height + gap_between_line * 6 + 'px';
+    //   input_holder.style.top = initial_top - gap_between_line * 7 + 'px';
+    //   input_holder.style.overflow = 'auto';
+    // }
   }
   resize(event,input_holder/*,input*/){
     //If Enter, block

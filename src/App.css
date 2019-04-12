@@ -29,15 +29,15 @@
     box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
   }
   .btn_send_holder{
-      position: fixed;
-      top: 580px;
-      left: 1300px;
+      position: relative;
+      bottom: 6px;
+      left: 520px;
   }
   .input2_holder{
-      position: fixed;
-      left: 460px;
-      top: 590px;
-      width: 800px;
+      position: relative;
+      left: 50px;
+      top: 45px;
+      width: 450px;
       height: 50px;
       border-radius: 200px;
       box-shadow: 1px 3px 10px darkgray;
@@ -46,8 +46,8 @@
   }
   .input2{
     /* top: 10px; */
-    left: 80px; 
-    width:600px;
+    left: 60px; 
+    width:350px;
     overflow-wrap: break-word;
     word-break: break-all;
     overflow: hidden;
@@ -55,8 +55,36 @@
   .chat_background{
       position: fixed;
       top: 0px;
-      left: 0px;
-      width: 100%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      width: 600px;
       height: 100%;
-      background: azure;
+      background: honeydew;
+  }
+  .Your_message{
+    position: relative;
+    left: 500px;
+    padding-top: 10px;
+  }
+  .Partner_message{
+    position: relative;
+    left: 10px;
+    padding-top: 10px;
+  }
+  .bar_and_button{
+      position: fixed;
+      top: 550px;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      width: 600px;
+  }
+  .all_messages{
+      position: fixed;
+      top: 0px;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      width: 600px;
+      height: 540px;
+      overflow: auto;
+      overflow-x: hidden;
   }

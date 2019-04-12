@@ -6,9 +6,6 @@ import Send_button from '../message/Send_button';
 import uuidv1 from 'uuid/v1';
 import '../App.css';
 
-function make_deep_copy(arr){
-  return JSON.parse(JSON.stringify(arr));
-}
 
 export default class Chat_page extends Component {
   constructor(props){
@@ -47,12 +44,16 @@ export default class Chat_page extends Component {
     const { socket } = this.props;
     return (
       <div className = "chat_background">
+      <div className = "all_messages">
       {this.state.all_message}
+      </div>
+      <div className = "bar_and_button" >
       <Type_bar change_message = {this.change_message}/>
       <Send_button socket = {socket} 
                    message = {this.state.message}
                    update_all_message = {() => this.update_all_message(Your_message,this.state.message)}
       />
+      </div>
       </div>
     )
   }
