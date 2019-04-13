@@ -21,6 +21,7 @@ class App extends Component {
     this.handle_match = this.handle_match.bind(this);
     this.handle_exiting = this.handle_exiting.bind(this);
     this.check = this.check.bind(this);
+    this.exit = this.exit.bind(this);
   }
   componentDidMount(){
     socket.on('please wait',this.handle_waiting);
@@ -32,7 +33,7 @@ class App extends Component {
   }
 
   handle_match(data){
-    this.setState({main_component : <Chat_page name = {data.name} room = {data.room} socket = {socket} handle_exiting = {this.handle_exiting}/>})
+    this.setState({main_component : <Chat_page name = {data.name} room = {data.room} socket = {socket} handle_exiting = {this.handle_exiting} exit = {this.exit}/>})
   }
 
   handle_exiting(){
@@ -40,6 +41,12 @@ class App extends Component {
     this.setState({main_component: <Starting_page change_name = {this.change_name} connect = {this.connect}/>})
   }
 
+  exit(){
+    if(window.confirm("Do you really want to leave? You cannot see this conversation again")){
+    this.setState({main_component: <Starting_page change_name = {this.change_name} connect = {this.connect}/>})
+    socket.emit("Partner disconnected");
+    }
+  }
   change_name(e){
     this.setState({username : e.target.value});
   }

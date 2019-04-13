@@ -3,6 +3,7 @@ import Partner_message from '../message/Partner_message';
 import Your_message from '../message/Your_message';
 import Type_bar from '../message/Type_bar';
 import Send_button from '../message/Send_button';
+import Button from '@material-ui/core/Button';
 import uuidv1 from 'uuid/v1';
 import '../App.css';
 
@@ -42,6 +43,7 @@ export default class Chat_page extends Component {
   render() {
     const { classes } = this.props;
     const { socket } = this.props;
+    const { exit } = this.props;
     return (
       <div className = "chat_background">
       <div className = "all_messages">
@@ -53,6 +55,9 @@ export default class Chat_page extends Component {
                    message = {this.state.message}
                    update_all_message = {() => this.update_all_message(Your_message,this.state.message)}
       />
+      </div>
+      <div className = "exit_button_holder">
+      <Button color = "primary" variant = "contained" onClick = {exit}>Leave the chat</Button>
       </div>
       </div>
     )

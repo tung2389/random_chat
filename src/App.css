@@ -29,12 +29,12 @@
     box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
   }
   .btn_send_holder{
-      position: relative;
-      bottom: 6px;
+      position: fixed;
+      bottom: 100px;
       left: 520px;
   }
   .input2_holder{
-      position: relative;
+      position: fixed;
       left: 50px;
       top: 45px;
       width: 450px;
@@ -63,7 +63,7 @@
   }
   .Your_message{
     position: relative;
-    left: 500px;
+    right: 10px;
     padding-top: 10px;
   }
   .Partner_message{
@@ -76,6 +76,7 @@
       top: 550px;
       left: 50%;
       transform: translate(-50%, 0%);
+      height: 200px;
       width: 600px;
   }
   .all_messages{
@@ -88,3 +89,8 @@
       overflow: auto;
       overflow-x: hidden;
   }
+.exit_button_holder{
+    position: fixed;
+    top:50%;
+    left: 800px;
+}

@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import TextField from '@material-ui/core/TextField';
 import '../App.css';
 
-const initial_top = 590;
+const initial_top = 45;
 const initial_height = 50;
-const initial_bottom_input = 20;
-const max_in_one_row = 67;
+const max_in_one_row = 39;
 const gap_between_line = 16;
-
+const max_line = 4;
 export default class Type_bar extends Component {
   constructor(props){
     super(props);
@@ -31,23 +30,30 @@ export default class Type_bar extends Component {
     if(e.target.value.length === 0)
     this.setState({length:e.target.value.length + 1});
     else
-    this.setState({length:e.target.value.length + 1});
+    this.setState({length:e.target.value.length});
+    // console.log(e.target.value.length);
     change_message(e.target.value);
   }
 
   caculate_resize(distance,input_holder){
 
-    // if(distance <= 6){
-    // input_holder.style.height = initial_height + gap_between_line * (distance - 1) + 'px';
-    // input_holder.style.top = initial_top - gap_between_line * (distance - 1) + 'px';
-    // }
+    // console.log(distance);
+    if(distance <= max_line){
+    //Expend height to the bottom
+    input_holder.style.height = initial_height + gap_between_line * (distance - 1) + 'px';
+    //Move the input up to get on well with the bottom
+    input_holder.style.top = initial_top - gap_between_line * (distance - 1) + 'px';
+    }
 
-    // else{
-    //   input_holder.style.height = initial_height + gap_between_line * 6 + 'px';
-    //   input_holder.style.top = initial_top - gap_between_line * 7 + 'px';
-    //   input_holder.style.overflow = 'auto';
-    // }
+    else{
+      input_holder.style.height = initial_height + gap_between_line * max_line - 20 + 'px';
+      console.log(initial_height,gap_between_line,max_line);
+      input_holder.style.top = initial_top - gap_between_line * (max_line + 1) + 20 + 'px' ;
+      input_holder.style.overflow = 'auto';
+      // console.log(input_holder.style.height);
+    }
   }
+
   resize(event,input_holder/*,input*/){
     //If Enter, block
     //console.log(gap_between_line * (Math.ceil(this.state.length / max_in_one_row)));

@@ -21,7 +21,7 @@ class Your_message extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className = "Your_message">
+      <div className = "Your_message" align = "right">
       {/* your partner is {this.props.name} and your room is {this.props.room} */}
       <Paper elevation={4} classes={{ root: classes.partner_message }}>
       {this.props.content}
