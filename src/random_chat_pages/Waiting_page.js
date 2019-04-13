@@ -4,7 +4,7 @@ export default class Waiting_page extends Component {
   render() {
     return (
       <div align = "center">
-        Please wait
+        Please wait, we are searching for your partner
       </div>
     )
   }

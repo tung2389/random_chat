@@ -19,7 +19,6 @@ class App extends Component {
     };
     this.handle_waiting = this.handle_waiting.bind(this);
     this.handle_match = this.handle_match.bind(this);
-    this.handle_exiting = this.handle_exiting.bind(this);
     this.check = this.check.bind(this);
     this.exit = this.exit.bind(this);
   }
@@ -33,12 +32,7 @@ class App extends Component {
   }
 
   handle_match(data){
-    this.setState({main_component : <Chat_page name = {data.name} room = {data.room} socket = {socket} handle_exiting = {this.handle_exiting} exit = {this.exit}/>})
-  }
-
-  handle_exiting(){
-    alert("Your partner has disconnected. We will turn you back to the homepage");
-    this.setState({main_component: <Starting_page change_name = {this.change_name} connect = {this.connect}/>})
+    this.setState({main_component : <Chat_page your_name = {this.state.username} partner_name = {data.name} socket = {socket} exit = {this.exit}/>})
   }
 
   exit(){
@@ -47,6 +41,7 @@ class App extends Component {
     socket.emit("Partner disconnected");
     }
   }
+
   change_name(e){
     this.setState({username : e.target.value});
   }

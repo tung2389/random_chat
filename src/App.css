@@ -81,7 +81,7 @@
   }
   .all_messages{
       position: fixed;
-      top: 0px;
+      top: 60px;
       left: 50%;
       transform: translate(-50%, 0%);
       width: 600px;
@@ -93,4 +93,17 @@
     position: fixed;
     top:50%;
     left: 800px;
+}
+.exiting_notification{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+.Info{
+    max-width: 400px;
+    left: 40px;
+    position: fixed;
+    top: 50%;
+    transform: translate(0%, -50%);
 }
