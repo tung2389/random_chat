@@ -5,7 +5,7 @@ import Waiting_page from './random_chat_pages/Waiting_page';
 import Chat_page from './random_chat_pages/Chat_page';
 import io from 'socket.io-client';
 
-const url = 'http://localhost:3001';
+const url = 'https://socket-backend.herokuapp.com/';
 const socket = io(url);
 
 class App extends Component {
