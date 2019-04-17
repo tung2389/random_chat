@@ -47,6 +47,7 @@ class App extends Component {
   }
 
   connect(){
+    this.setState({main_component : <Waiting_page/>})
     socket.emit('find partner',{name : this.state.username});
   }
 
